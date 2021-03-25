@@ -1,0 +1,29 @@
+﻿<Window x:Class="CurrencyExchanger.UI.Views.ShellWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CurrencyExchanger.UI.Views"
+        mc:Ignorable="d"
+        xmlns:prism="http://prismlibrary.com/"             
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="CurrencyExchanger" Height="450" Width="800">
+    <Grid>
+        <ComboBox HorizontalAlignment="Left" Margin="75,98,0,0" VerticalAlignment="Top" Width="200" FontSize="20" ItemsSource="{Binding Rates}"
+            DisplayMemberPath="Currency"
+            SelectedValue="{Binding SourceRate}" Height="35"/>
+        <ComboBox HorizontalAlignment="Left" Margin="520,98,0,0" VerticalAlignment="Top" Width="200" FontSize="20" ItemsSource="{Binding Rates}"
+                  DisplayMemberPath="Currency"
+                  SelectedValue="{Binding ReturnRate}" Height="35" />
+        <TextBox HorizontalAlignment="Left" Name="SourceCurrencyRateTextBox" Margin="75,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="35" FontSize="30" Text="{Binding SourceRate.Mid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
+        <TextBox HorizontalAlignment="Left" Name="ReturnCurrencyAmountTextBox" Margin="520,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="35" FontSize="30" Text="{Binding ReturnAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" />
+        <TextBox HorizontalAlignment="Left" Name="SourceCurrencyAmountTextBox" Margin="75,265,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="35" FontSize="30" Text="{Binding SourceAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox HorizontalAlignment="Left" Name="ReturnCurrencyRateTextBox" Margin="520,191,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="35" FontSize="30" Text="{Binding ReturnRate.Mid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"  />
+        <Label Content="Currency Exchanger" HorizontalAlignment="Left" Margin="128,10,0,0" VerticalAlignment="Top" Width="520" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Your currency" HorizontalAlignment="Left" Margin="75,55,0,0" VerticalAlignment="Top" Width="200" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Exchanged Currency" HorizontalAlignment="Left" Margin="520,58,0,0" VerticalAlignment="Top"  Width="200" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Currency Rate" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top" Width="200" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Currency Name" HorizontalAlignment="Center" Margin="0,189,0,0" VerticalAlignment="Top" Width="200" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Currency Amount" HorizontalAlignment="Center" VerticalAlignment="Top" Width="200" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,263,0,0"/>
+    </Grid>
+</Window>
